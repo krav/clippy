@@ -1,0 +1,50 @@
+#blc_menu {
+    background-color: aqua;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 9999;
+    cursor: pointer;
+    display: none;
+
+}
+#blc_header {
+    justify-content: center;
+    display: flex;
+}
+#blc_cols {
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+}
+.blc_row {
+    justify-content: space-between;
+    display: flex;
+}
+.blc_btn {
+}
+
+#blc_clippy {
+    z-index: 9998;
+    width: 100px;
+    height: 100px;
+    background-color: rgb(245, 230, 99);
+    border: 10px solid rgba(136, 136, 136, .5);
+    border-radius: 50%;
+    touch-action: none;
+    user-select: none;
+}
+#blc_clippy:active { // FIXME no worky on touchy
+                     background-color: rgba(168, 218, 220, 1.00);
+                   }
+#blc_clippy:hover {
+    cursor: move;
+    border-width: 20px;
+}
+body {
+    height: 100%;
+    width: 100%;
+}
