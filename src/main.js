@@ -7,8 +7,9 @@ var initialX;
 var initialY;
 var prevX;
 var prevY;
-var xOffset = 0;
-var yOffset = 0;
+var xOffset = getCookie("blc_xoff") || document.documentElement.clientWidth-300;
+var yOffset = getCookie("blc_yoff") || -dragItem.offsetTop+100;
+const cookieparams = ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;domain=" + (document.domain.match(/[^\.]*\.[^.]*$/)[0])  + ";";
 
 menuDiv.addEventListener("click", hideMenu, false);
 dragItem.addEventListener("touchstart", dragStart, false);
@@ -20,18 +21,25 @@ dragItem.addEventListener("mouseup", dragEnd, false);
 // This has to be on document because the cursor can slip off the element
 document.addEventListener("mousemove", drag, false);
 
+setTranslate(xOffset, yOffset, dragItem);
+
+function getCookie(c) {
+    return document.cookie.replace(new RegExp('.*' + c + "\s*\=\s*([^;]*).*"), "$1");
+}
+
 function hideMenu(e) {
-    console.log(e);
     document.querySelector("#blc_menu").style.display = "none";
 }
 
 function showMenu(e) {
-    console.log(e);
     document.querySelector("#blc_menu").style.display = "block";
 }
 
+function hideClippy(e) {
+    dragItem.style.display = "none";
+}
+
 function dragStart(e) {
-    console.log(e);
     if (e.type === "touchstart") {
         initialX = e.touches[0].clientX - xOffset;
         initialY = e.touches[0].clientY - yOffset;
@@ -47,7 +55,6 @@ function dragStart(e) {
 }
 
 function dragEnd(e) {
-    console.log(e);
     if (prevX == xOffset && prevY == yOffset) {
         e.preventDefault();
         showMenu();
@@ -76,6 +83,8 @@ function drag(e) {
         //     return
         // }
 
+        document.cookie = "blc_xoff=" + xOffset + cookieparams;
+        document.cookie = "blc_yoff=" + yOffset + cookieparams;
         setTranslate(xOffset, yOffset, dragItem);
     }
 }

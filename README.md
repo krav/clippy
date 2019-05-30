@@ -14,23 +14,11 @@ At the end of your document, put
 
 # TODO
 
-* Menu stuff
-   - background
-   - header
-   - button to hide orb
-
-
 * JS
-  - cookie storage of orb position 
   - enforce boundary (also on load)
-  * Maybe don't use backtick quote syntax
-
-* Clippy
-  * Art
-  
-* Buttons
+  - Maybe don't use backtick quote syntax
 
 * Etc 
   * minify
-  * test more on phones
+  * test with viewport scaling on/off 
 

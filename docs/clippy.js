@@ -1,7 +1,8 @@
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = `#blc_menu {
-    background-color: aqua;
+    background-image: url("https://krav.github.io/clippy/bg.gif");
+    background-repeat: repeat;
     top: 0;
     left: 0;
     right: 0;
@@ -10,7 +11,8 @@ styleSheet.innerText = `#blc_menu {
     z-index: 9999;
     cursor: pointer;
     display: none;
-
+    color: green;
+    padding: 5%;
 }
 #blc_header {
     justify-content: center;
@@ -33,15 +35,19 @@ styleSheet.innerText = `#blc_menu {
     z-index: 9998;
     width: 100px;
     height: 100px;
-    background-color: rgb(245, 230, 99);
-    border: 10px solid rgba(136, 136, 136, .5);
+    background-size: 100px;
+    background-image: url("https://krav.github.io/clippy/compass.gif");
+    border: 1px solid rgba(136, 136, 136, .5);
+    //background-color: rgb(245, 230, 99);
     border-radius: 50%;
     touch-action: none;
     user-select: none;
 }
+
 #blc_clippy:active { // FIXME no worky on touchy
                      background-color: rgba(168, 218, 220, 1.00);
                    }
+
 #blc_clippy:hover {
     cursor: move;
     border-width: 20px;
@@ -56,50 +62,72 @@ const menu = document.createElement("div");
 menu.id = "blc_menu";
 menu.innerHTML = `<div id="blc_cols">
     <div id="blc_header">
-        <img src="header.gif" alt="Borderland Navigation" />
+        <img src="https://krav.github.io/clippy/header.gif" alt="Borderland Navigation" />
     </div>
+
+
+    <div class="blc_row">
+        <div class="blc_btn">
+            <a href="https://talk.theborderland.se">
+                <img src="https://krav.github.io/clippy/talk.gif" alt="Talk" />
+            </a>
+        </div>
+        <div class="blc_btn">
+            <div class="blc_btn">
+                <a href="https://account.theborderland.se/auth/realms/master/account">
+                    <img src="https://krav.github.io/clippy/account.gif" alt="Account" />
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="blc_row">
         <div class="blc_btn">
             <a href="https://dreams.theborderland.se">
-                <img src="dreams.gif" alt="Dreams" />
+                <img src="https://krav.github.io/clippy/dreams.gif" alt="Dreams" />
             </a>
         </div>
         <div class="blc_btn">
             <div class="blc_btn">
                 <a href="https://realities.theborderland.se">
-                    <img src="realities.gif" alt="Realities" />
+                    <img src="https://krav.github.io/clippy/realities.gif" alt="Realities" />
                 </a>
             </div>
         </div>
     </div>
+
     <div class="blc_row">
         <div class="blc_btn">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/skull-and-crossbones.svg" alt="" />
+            <a href="https://memberships.theborderland.se">
+                <img src="https://krav.github.io/clippy/memberships.gif" alt="Memberships" />
+            </a>
         </div>
         <div class="blc_btn">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/skull-and-crossbones.svg" alt="" />
+            <div class="blc_btn">
+                <a href="https://theborderland.se">
+                    <img src="https://krav.github.io/clippy/website.gif" alt="General Info" />
+                </a>
+            </div>
         </div>
     </div>
+
     <div class="blc_row">
         <div class="blc_btn">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/skull-and-crossbones.svg" alt="" />
+            <a href="https://talk.theborderland.se/d/RWGSpxMj/first-timers-guide">
+                <img src="https://krav.github.io/clippy/firsttime.gif" alt="First Timers Guide" />
+            </a>
         </div>
-        <div class="blc_btn">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/skull-and-crossbones.svg" alt="" />
-        </div>
+
     </div>
 
 
     <div class="blc_row">
-        <div class="blc_btn">
-            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3/skull-and-crossbones.svg" alt="" />
+        <div class="blc_btn"></div>
+        <div class="blc_btn" style="font-size: 20pt; font-weight: bold">
+            <a onclick="hideClippy()">
+                ☢️ Permanently Destroy Navigation Orb
+            </a>
         </div>
-    </div>
-
-
-    <div class="blc_row">
-    </div>
-    <div class="blc_row">
     </div>
 </div>`;
 document.body.appendChild(menu);
@@ -116,8 +144,9 @@ var initialX;
 var initialY;
 var prevX;
 var prevY;
-var xOffset = 0;
-var yOffset = 0;
+var xOffset = getCookie("blc_xoff") || document.documentElement.clientWidth-300;
+var yOffset = getCookie("blc_yoff") || -dragItem.offsetTop+100;
+const cookieparams = ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;domain=" + (document.domain.match(/[^\.]*\.[^.]*$/)[0])  + ";";
 
 menuDiv.addEventListener("click", hideMenu, false);
 dragItem.addEventListener("touchstart", dragStart, false);
@@ -129,18 +158,25 @@ dragItem.addEventListener("mouseup", dragEnd, false);
 // This has to be on document because the cursor can slip off the element
 document.addEventListener("mousemove", drag, false);
 
+setTranslate(xOffset, yOffset, dragItem);
+
+function getCookie(c) {
+    return document.cookie.replace(new RegExp('.*' + c + "\s*\=\s*([^;]*).*"), "$1");
+}
+
 function hideMenu(e) {
-    console.log(e);
     document.querySelector("#blc_menu").style.display = "none";
 }
 
 function showMenu(e) {
-    console.log(e);
     document.querySelector("#blc_menu").style.display = "block";
 }
 
+function hideClippy(e) {
+    dragItem.style.display = "none";
+}
+
 function dragStart(e) {
-    console.log(e);
     if (e.type === "touchstart") {
         initialX = e.touches[0].clientX - xOffset;
         initialY = e.touches[0].clientY - yOffset;
@@ -156,7 +192,6 @@ function dragStart(e) {
 }
 
 function dragEnd(e) {
-    console.log(e);
     if (prevX == xOffset && prevY == yOffset) {
         e.preventDefault();
         showMenu();
@@ -185,6 +220,8 @@ function drag(e) {
         //     return
         // }
 
+        document.cookie = "blc_xoff=" + xOffset + cookieparams;
+        document.cookie = "blc_yoff=" + yOffset + cookieparams;
         setTranslate(xOffset, yOffset, dragItem);
     }
 }
