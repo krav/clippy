@@ -29,6 +29,7 @@ styleSheet.innerText = `#blc_menu {
     display: flex;
 }
 .blc_btn {
+    cursor: help;
 }
 
 #blc_clippy {
@@ -146,7 +147,7 @@ var prevX;
 var prevY;
 var xOffset = getCookie("blc_xoff") || document.documentElement.clientWidth-300;
 var yOffset = getCookie("blc_yoff") || -dragItem.offsetTop+100;
-const cookieparams = ";expires=Fri, 31 Dec 9999 23:59:59 GMT;path=/;domain=" + (document.domain.match(/[^\.]*\.[^.]*$/)[0])  + ";";
+const cookieparams = "; expires=Fri, 31 Dec 9999 23:59:59 GMT"; //; path=/; domain=." + (document.domain.match(/[^\.]*\.[^.]*$/)[0])  + ";";
 
 menuDiv.addEventListener("click", hideMenu, false);
 dragItem.addEventListener("touchstart", dragStart, false);

@@ -27,6 +27,7 @@
     display: flex;
 }
 .blc_btn {
+    cursor: help;
 }
 
 #blc_clippy {
