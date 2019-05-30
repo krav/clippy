@@ -9,7 +9,7 @@ Toy proposal for Borderland uglyweb navigation.
 At the end of your document, put
 
 ```html
-<script src="clippy.js" type="text/javascript"></script>
+<script src="https://krav.github.io/clippy/clippy.js" type="text/javascript"></script>
 ```
 
 # TODO

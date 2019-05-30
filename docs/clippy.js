@@ -18,17 +18,21 @@ styleSheet.innerText = `#blc_menu {
     justify-content: center;
     display: flex;
 }
-#blc_cols {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
+@media screen and (min-width: 700px) {
+    #blc_cols {
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .blc_row {
+        justify-content: space-between;
+        display: flex;
+    }
 }
-.blc_row {
-    justify-content: space-between;
-    display: flex;
-}
-.blc_btn {
+
+.blc_btn a {
     cursor: help;
 }
 
@@ -66,6 +70,20 @@ menu.innerHTML = `<div id="blc_cols">
         <img src="https://krav.github.io/clippy/header.gif" alt="Borderland Navigation" />
     </div>
 
+    <div class="blc_row">
+        <div class="blc_btn">
+            <a href="https://dreams.theborderland.se">
+                <img src="https://krav.github.io/clippy/dreams.gif" alt="Dreams" />
+            </a>
+        </div>
+        <div class="blc_btn">
+            <div class="blc_btn">
+                <a href="https://realities.theborderland.se">
+                    <img src="https://krav.github.io/clippy/realities.gif" alt="Realities" />
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="blc_row">
         <div class="blc_btn">
@@ -77,21 +95,6 @@ menu.innerHTML = `<div id="blc_cols">
             <div class="blc_btn">
                 <a href="https://account.theborderland.se/auth/realms/master/account">
                     <img src="https://krav.github.io/clippy/account.gif" alt="Account" />
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <div class="blc_row">
-        <div class="blc_btn">
-            <a href="https://dreams.theborderland.se">
-                <img src="https://krav.github.io/clippy/dreams.gif" alt="Dreams" />
-            </a>
-        </div>
-        <div class="blc_btn">
-            <div class="blc_btn">
-                <a href="https://realities.theborderland.se">
-                    <img src="https://krav.github.io/clippy/realities.gif" alt="Realities" />
                 </a>
             </div>
         </div>

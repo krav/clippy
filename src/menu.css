@@ -16,17 +16,21 @@
     justify-content: center;
     display: flex;
 }
-#blc_cols {
-    flex-direction: column;
-    display: flex;
-    justify-content: space-between;
-    height: 100%;
+@media screen and (min-width: 700px) {
+    #blc_cols {
+        flex-direction: column;
+        display: flex;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .blc_row {
+        justify-content: space-between;
+        display: flex;
+    }
 }
-.blc_row {
-    justify-content: space-between;
-    display: flex;
-}
-.blc_btn {
+
+.blc_btn a {
     cursor: help;
 }
 
