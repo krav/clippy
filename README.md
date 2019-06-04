@@ -15,7 +15,8 @@ At the end of your document, put
 # TODO
 
 * JS
-  - enforce boundary (also on load)
+  - enforce position boundary (also on load)
+  - encapsulate so it doesn't pollute the global scope
   - Maybe don't use backtick quote syntax
 
 * Etc 

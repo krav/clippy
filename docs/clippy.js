@@ -47,6 +47,7 @@ styleSheet.innerText = `#blc_menu {
     border-radius: 50%;
     touch-action: none;
     user-select: none;
+    position: absolute;
 }
 
 #blc_clippy:active { // FIXME no worky on touchy
@@ -164,7 +165,11 @@ document.addEventListener("mousemove", drag, false);
 
 setTranslate(xOffset, yOffset, dragItem);
 
+console.log("xoff: " + xOffset);
+console.log("yoff:" + yOffset);
+
 function getCookie(c) {
+    // FIXME
     return document.cookie.replace(new RegExp('.*' + c + "\s*\=\s*([^;]*).*"), "$1");
 }
 
@@ -177,6 +182,7 @@ function showMenu(e) {
 }
 
 function hideClippy(e) {
+    // TODO store cookie
     dragItem.style.display = "none";
 }
 
@@ -188,6 +194,7 @@ function dragStart(e) {
         initialX = e.clientX - xOffset;
         initialY = e.clientY - yOffset;
     }
+    console.log("cientX: " + e.clientX);
     prevX = xOffset; prevY = yOffset;
 
     if (e.target === dragItem) {

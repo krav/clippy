@@ -23,7 +23,12 @@ document.addEventListener("mousemove", drag, false);
 
 setTranslate(xOffset, yOffset, dragItem);
 
+console.log("xoff: " + xOffset);
+console.log("yoff:" + yOffset);
+
 function getCookie(c) {
+    // FIXME
+    // CSRF-TOKEN=XqjDaPES4kOK0OP67YS9K786skxaJsMfvdRh7mm4fbwNo%2Bbdp%2Bn%2FXfvKyQ1eWXtnm0qmSnMIjgowyMIzILTjOg%3D%3D; ahoy_visit=141a3ca2-c861-48d8-aae0-be0926cbe3f2; ahoy_visitor=c0013e34-6583-4dfd-9108-9e6709ba08d9
     return document.cookie.replace(new RegExp('.*' + c + "\s*\=\s*([^;]*).*"), "$1");
 }
 
@@ -36,6 +41,7 @@ function showMenu(e) {
 }
 
 function hideClippy(e) {
+    // TODO store cookie
     dragItem.style.display = "none";
 }
 
@@ -47,6 +53,7 @@ function dragStart(e) {
         initialX = e.clientX - xOffset;
         initialY = e.clientY - yOffset;
     }
+    console.log("cientX: " + e.clientX);
     prevX = xOffset; prevY = yOffset;
 
     if (e.target === dragItem) {
