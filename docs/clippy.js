@@ -168,9 +168,9 @@ setTranslate(xOffset, yOffset, dragItem);
 console.log("xoff: " + xOffset);
 console.log("yoff:" + yOffset);
 
-function getCookie(c) {
-    // FIXME
-    return document.cookie.replace(new RegExp('.*' + c + "\s*\=\s*([^;]*).*"), "$1");
+function getCookie(a) {
+    var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
+    return b ? b.pop() : '';
 }
 
 function hideMenu(e) {
