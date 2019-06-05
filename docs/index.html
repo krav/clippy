@@ -83,22 +83,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1 class="title">Clippy</h1>
 </header>
 <p>Toy proposal for Borderland uglyweb navigation.</p>
+<h1 id="reasoning">Reasoning</h1>
+<p>The Borderland is a decentralised mishmash of sites. Instead of trying to enforce a unifying navigation paradigm and mantaining links between them multiple places, this toy is an easily injectable movable icon that show a Geocities/ATM style menu.</p>
 <h1 id="using">Using</h1>
 <p>At the end of your document, put</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">&lt;script</span><span class="ot"> src=</span><span class="st">&quot;https://krav.github.io/clippy/clippy.js&quot;</span><span class="ot"> type=</span><span class="st">&quot;text/javascript&quot;</span><span class="kw">&gt;&lt;/script&gt;</span></a></code></pre></div>
+<p>e.g. using nginx as a reverse proxy you can inject it:</p>
+<pre class="nginx"><code>proxy_set_header &#39;X-Forwarded-Proto&#39; &#39;https&#39;;
+proxy_set_header &#39;Accept-Encoding&#39; &#39;&#39;;
+sub_filter_once on;
+sub_filter &quot;&lt;/body&gt;&quot; &#39;&lt;script src=&quot;https://krav.github.io/clippy/clippy.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;&lt;/body&gt;&#39;;</code></pre>
 <h1 id="todo">TODO</h1>
 <ul>
-<li>JS
-<ul>
-<li>enforce position boundary (also on load)</li>
-<li>encapsulate</li>
+<li>“prettier” orb animation icon</li>
+<li>encapsulate so it doesn’t pollute the global scope</li>
+<li>enforce position boundary (also on load, since screen size might have changed)</li>
 <li>Maybe don’t use backtick quote syntax</li>
-</ul></li>
-<li>Etc
-<ul>
 <li>minify</li>
-<li>test with viewport scaling on/off</li>
-</ul></li>
+<li>preload background image</li>
 </ul>
 </body>
 </html>

@@ -79,7 +79,7 @@ menu.innerHTML = `<div id="blc_cols">
         </div>
         <div class="blc_btn">
             <div class="blc_btn">
-                <a href="https://realities.theborderland.se">
+                <a href="http://realities.theborderland.se">
                     <img src="https://krav.github.io/clippy/realities.gif" alt="Realities" />
                 </a>
             </div>
@@ -149,8 +149,8 @@ var initialX;
 var initialY;
 var prevX;
 var prevY;
-var xOffset = getCookie("blc_xoff") || document.documentElement.clientWidth-300;
-var yOffset = getCookie("blc_yoff") || -dragItem.offsetTop+100;
+var xOffset = getCookie("blc_xoff") || document.documentElement.clientWidth-160;
+var yOffset = getCookie("blc_yoff") || document.documentElement.clientHeight-dragItem.offsetTop-160;
 const cookieparams = "; expires=Fri, 31 Dec 9999 23:59:59 GMT"; //; path=/; domain=." + (document.domain.match(/[^\.]*\.[^.]*$/)[0])  + ";";
 
 menuDiv.addEventListener("click", hideMenu, false);
@@ -164,9 +164,6 @@ dragItem.addEventListener("mouseup", dragEnd, false);
 document.addEventListener("mousemove", drag, false);
 
 setTranslate(xOffset, yOffset, dragItem);
-
-console.log("xoff: " + xOffset);
-console.log("yoff:" + yOffset);
 
 function getCookie(a) {
     var b = document.cookie.match('(^|[^;]+)\\s*' + a + '\\s*=\\s*([^;]+)');
@@ -194,7 +191,6 @@ function dragStart(e) {
         initialX = e.clientX - xOffset;
         initialY = e.clientY - yOffset;
     }
-    console.log("cientX: " + e.clientX);
     prevX = xOffset; prevY = yOffset;
 
     if (e.target === dragItem) {
