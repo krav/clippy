@@ -2,7 +2,7 @@
 title: Clippy
 ...
 
-Toy proposal for Borderland uglyweb navigation.
+Toy proposal for Borderland uglyweb navigation. [source](https://github.com/krav/clippy)
 
 # Reasoning
 
@@ -33,6 +33,9 @@ sub_filter "</body>" '<script src="https://krav.github.io/clippy/clippy.js" type
   - encapsulate so it doesn't pollute the global scope
   - enforce position boundary (also on load, since screen size might have changed)
   - Maybe don't use backtick quote syntax
-  * minify
-  * preload background image
-  
+  - minify
+  - preload background image
+  - show account status and log out link
+  - first timers guide is too big
+  - throw some !important on the right CSS things so inherited styles don't break things
+
