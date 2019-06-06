@@ -1,7 +1,7 @@
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = `#blc_menu {
-    background-image: url("https://krav.github.io/clippy/bg.gif");
+    background-image: url("https://menu.theborderland.se/bg.gif");
     background-repeat: repeat;
     top: 0;
     left: 0;
@@ -41,7 +41,8 @@ styleSheet.innerText = `#blc_menu {
     width: 100px;
     height: 100px;
     background-size: 100px;
-    background-image: url("https://krav.github.io/clippy/compass.gif");
+    background-image: url("https://menu.theborderland.se/compass.gif");
+//    background-image: url("compass.gif");
     border: 1px solid rgba(136, 136, 136, .5);
     //background-color: rgb(245, 230, 99);
     border-radius: 50%;
@@ -68,19 +69,19 @@ const menu = document.createElement("div");
 menu.id = "blc_menu";
 menu.innerHTML = `<div id="blc_cols">
     <div id="blc_header">
-        <img src="https://krav.github.io/clippy/header.gif" alt="Borderland Navigation" />
+        <img src="https://menu.theborderland.se/header.gif" alt="Borderland Navigation" />
     </div>
 
     <div class="blc_row">
         <div class="blc_btn">
             <a href="https://dreams.theborderland.se">
-                <img src="https://krav.github.io/clippy/dreams.gif" alt="Dreams" />
+                <img src="https://menu.theborderland.se/dreams.gif" alt="Dreams" />
             </a>
         </div>
         <div class="blc_btn">
             <div class="blc_btn">
                 <a href="http://realities.theborderland.se">
-                    <img src="https://krav.github.io/clippy/realities.gif" alt="Realities" />
+                    <img src="https://menu.theborderland.se/realities.gif" alt="Realities" />
                 </a>
             </div>
         </div>
@@ -89,13 +90,13 @@ menu.innerHTML = `<div id="blc_cols">
     <div class="blc_row">
         <div class="blc_btn">
             <a href="https://talk.theborderland.se">
-                <img src="https://krav.github.io/clippy/talk.gif" alt="Talk" />
+                <img src="https://menu.theborderland.se/talk.gif" alt="Talk" />
             </a>
         </div>
         <div class="blc_btn">
             <div class="blc_btn">
                 <a href="https://account.theborderland.se/auth/realms/master/account">
-                    <img src="https://krav.github.io/clippy/account.gif" alt="Account" />
+                    <img src="https://menu.theborderland.se/account.gif" alt="Account" />
                 </a>
             </div>
         </div>
@@ -104,26 +105,28 @@ menu.innerHTML = `<div id="blc_cols">
     <div class="blc_row">
         <div class="blc_btn">
             <a href="https://memberships.theborderland.se">
-                <img src="https://krav.github.io/clippy/memberships.gif" alt="Memberships" />
+                <img src="https://menu.theborderland.se/memberships.gif" alt="Memberships" />
             </a>
         </div>
         <div class="blc_btn">
             <div class="blc_btn">
                 <a href="https://theborderland.se">
-                    <img src="https://krav.github.io/clippy/website.gif" alt="General Info" />
+                    <img src="https://menu.theborderland.se/website.gif" alt="General Info" />
                 </a>
             </div>
         </div>
     </div>
 
+    <!--
     <div class="blc_row">
         <div class="blc_btn">
             <a href="https://talk.theborderland.se/d/RWGSpxMj/first-timers-guide">
-                <img src="https://krav.github.io/clippy/firsttime.gif" alt="First Timers Guide" />
+                <img src="https://menu.theborderland.se/firsttime.gif" alt="First Timers Guide" />
             </a>
         </div>
 
     </div>
+    -->
 
 
     <div class="blc_row">

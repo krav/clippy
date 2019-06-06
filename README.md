@@ -38,4 +38,6 @@ sub_filter "</body>" '<script src="https://krav.github.io/clippy/clippy.js" type
   - show account status and log out link
   - first timers guide is too big
   - throw some !important on the right CSS things so inherited styles don't break things
-
+  - open links in new tab
+  - different cursor
+  
