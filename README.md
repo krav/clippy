@@ -16,7 +16,7 @@ Geocities/ATM style menu.
 At the end of your document, put
 
 ```html
-<script src="https://krav.github.io/clippy/clippy.js" type="text/javascript"></script>
+<script src="https://menu.theborderland.se/clippy.js" type="text/javascript"></script>
 ```
 
 e.g. using nginx as a reverse proxy you can inject it:
@@ -25,11 +25,10 @@ e.g. using nginx as a reverse proxy you can inject it:
 proxy_set_header 'X-Forwarded-Proto' 'https';
 proxy_set_header 'Accept-Encoding' '';
 sub_filter_once on;
-sub_filter "</body>" '<script src="https://krav.github.io/clippy/clippy.js" type="text/javascript"></script></body>';
+sub_filter "</body>" '<script src="https://menu.theborderland.se/clippy.js" type="text/javascript"></script></body>';
 ```
 
 # TODO
-  - "prettier" orb animation icon
   - encapsulate so it doesn't pollute the global scope
   - enforce position boundary (also on load, since screen size might have changed)
   - Maybe don't use backtick quote syntax
@@ -40,4 +39,9 @@ sub_filter "</body>" '<script src="https://krav.github.io/clippy/clippy.js" type
   - throw some !important on the right CSS things so inherited styles don't break things
   - open links in new tab
   - different cursor
+  - capture back button to close menu when it's open 
+  - react on window resize
+  - make orb slightly smaller
+  - make orb disappear on tiny screens :O
+  
   
