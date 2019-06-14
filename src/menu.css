@@ -1,4 +1,5 @@
 #blc_menu {
+    all: initial;
     background-image: url("https://menu.theborderland.se/bg.gif");
     background-repeat: repeat;
     top: 0;
@@ -16,6 +17,8 @@
     justify-content: center;
     display: flex;
 }
+
+
 @media screen and (min-width: 700px) {
     #blc_cols {
         flex-direction: column;
@@ -35,10 +38,11 @@
 }
 
 #blc_clippy {
+    all: initial;
     z-index: 9998;
-    width: 100px;
-    height: 100px;
-    background-size: 100px;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
     background-image: url("https://menu.theborderland.se/compass.gif");
 //    background-image: url("compass.gif");
     border: 1px solid rgba(136, 136, 136, .5);
@@ -49,6 +53,12 @@
     position: absolute;
 }
 
+@media screen and (max-width: 350px) {
+    #blc_clippy {
+        display: none;
+    }
+}
+
 #blc_clippy:active { // FIXME no worky on touchy
                      background-color: rgba(168, 218, 220, 1.00);
                    }
@@ -56,8 +66,4 @@
 #blc_clippy:hover {
     cursor: move;
     border-width: 20px;
-}
-body {
-    height: 100%;
-    width: 100%;
 }

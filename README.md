@@ -29,19 +29,10 @@ sub_filter "</body>" '<script src="https://menu.theborderland.se/clippy.js" type
 ```
 
 # TODO
-  - encapsulate so it doesn't pollute the global scope
-  - enforce position boundary (also on load, since screen size might have changed)
   - Maybe don't use backtick quote syntax
   - minify
   - preload background image
   - show account status and log out link
-  - first timers guide is too big
-  - throw some !important on the right CSS things so inherited styles don't break things
-  - open links in new tab
   - different cursor
-  - capture back button to close menu when it's open 
-  - react on window resize
-  - make orb slightly smaller
-  - make orb disappear on tiny screens :O
   
   
