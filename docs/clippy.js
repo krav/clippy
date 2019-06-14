@@ -156,8 +156,7 @@ const Clippy = obj => {
 
     </div>
 </div>
-
-<audio id="blc_sound" src="external.mp3"></audio>`;
+<!-- <audio id="blc_sound" src="external.mp3"></audio> -->`;
     obj.body.appendChild(menu);
 
     const clippy = obj.createElement("div");

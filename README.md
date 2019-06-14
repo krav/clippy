@@ -34,5 +34,7 @@ sub_filter "</body>" '<script src="https://menu.theborderland.se/clippy.js" type
   - preload background image
   - show account status and log out link
   - different cursor
-  
+ 
+  - transition and ease in and out
+  - CODEF? ~ scroller effects ~ greetings ~
   
