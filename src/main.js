@@ -31,6 +31,7 @@ const getCookie = (a) => {
 const showMenu = (e) => {
     history.pushState("", "", "#borderland_menu");
     document.querySelector("#blc_menu").style.display = "block";
+    document.getElementById("blc_sound").play();
 };
 
 const hideMenu = () => {
@@ -109,8 +110,10 @@ dragItem.addEventListener("mouseup", dragEnd, false);
 // This has to be on document because the cursor can slip off the element
 document.addEventListener("mousemove", drag, false);
 window.addEventListener('popstate', e => {
-    if (menuDiv.style.display == "block")
+    if (menuDiv.style.display == "block") {
         document.querySelector("#blc_menu").style.display = "none";
+        document.getElementById("blc_sound").pause();
+    };
 });
 
 return {

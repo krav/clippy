@@ -140,7 +140,7 @@ const Clippy = obj => {
 
     <div class="blc_row">
         <div class="blc_btn">
-            [ <a target="_blank" href="https://menu.theborderland.se/readme.html?"> π pull requests </a> ]
+            [ <a target="_blank" href="https://menu.theborderland.se/readme.html"> π pull requests </a> ]
         </div>
         <div class="blc_btn">
             [ <a onclick="blc_clippy.hide()">
@@ -155,7 +155,9 @@ const Clippy = obj => {
 
 
     </div>
-</div>`;
+</div>
+
+<audio id="blc_sound" src="external.mp3"></audio>`;
     obj.body.appendChild(menu);
 
     const clippy = obj.createElement("div");
@@ -195,6 +197,7 @@ const getCookie = (a) => {
 const showMenu = (e) => {
     history.pushState("", "", "#borderland_menu");
     document.querySelector("#blc_menu").style.display = "block";
+    document.getElementById("blc_sound").play();
 };
 
 const hideMenu = () => {
@@ -273,8 +276,10 @@ dragItem.addEventListener("mouseup", dragEnd, false);
 // This has to be on document because the cursor can slip off the element
 document.addEventListener("mousemove", drag, false);
 window.addEventListener('popstate', e => {
-    if (menuDiv.style.display == "block")
+    if (menuDiv.style.display == "block") {
         document.querySelector("#blc_menu").style.display = "none";
+        document.getElementById("blc_sound").pause();
+    };
 });
 
 return {
