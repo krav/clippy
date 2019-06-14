@@ -31,7 +31,7 @@ const getCookie = (a) => {
 const showMenu = (e) => {
     history.pushState("", "", "#borderland_menu");
     document.querySelector("#blc_menu").style.display = "block";
-    document.getElementById("blc_sound").play();
+    //document.getElementById("blc_sound").play();
 };
 
 const hideMenu = () => {
@@ -112,7 +112,7 @@ document.addEventListener("mousemove", drag, false);
 window.addEventListener('popstate', e => {
     if (menuDiv.style.display == "block") {
         document.querySelector("#blc_menu").style.display = "none";
-        document.getElementById("blc_sound").pause();
+        //document.getElementById("blc_sound").pause();
     };
 });
 
