@@ -118,7 +118,7 @@ window.addEventListener('popstate', e => {
 
 return {
     hide: hideClippy,
-    destroy: function() {
+    destroy: () => {
         document.cookie = "blc_destroy=true" + cookieparams;
         hideClippy(undefined);
     }

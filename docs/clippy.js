@@ -82,6 +82,14 @@ const Clippy = obj => {
     <div class="blc_row">
         <div class="blc_btn">
             <a target="_blank" href="https://talk.theborderland.se">
+                <img src="https://menu.theborderland.se/guide.gif" alt="What Where When Guide" />
+            </a>
+        </div>
+    </div>
+
+    <div class="blc_row">
+        <div class="blc_btn">
+            <a target="_blank" href="https://talk.theborderland.se">
                 <img src="https://menu.theborderland.se/talk.gif" alt="Talk" />
             </a>
         </div>
@@ -283,7 +291,7 @@ window.addEventListener('popstate', e => {
 
 return {
     hide: hideClippy,
-    destroy: function() {
+    destroy: () => {
         document.cookie = "blc_destroy=true" + cookieparams;
         hideClippy(undefined);
     }
