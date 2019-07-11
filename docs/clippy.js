@@ -81,7 +81,7 @@ const Clippy = obj => {
 
     <div class="blc_row">
         <div class="blc_btn">
-            <a target="_blank" href="https://guide.theborderland.se">
+	    <a target="_blank" href="https://guide.theborderland.se/?utm_source=menu">
                 <img src="https://menu.theborderland.se/guide.gif" alt="What Where When Guide" />
             </a>
         </div>
